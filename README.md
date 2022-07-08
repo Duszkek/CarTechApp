@@ -47,7 +47,7 @@ Later I found out that it is forbidden to use async methods inside page's constr
 least I could see the problem in the exception.
 Problem was that while on my PC my microservice on localhost worked perfectly, the connection didn't worked for mobile phone - I mean it a localhost so it was purely
 my fault (overtaken by happines that the HttpClient was finally properly set up). If I could change one thing:
-- HttpClient should be set up only once for the whole time the app is working.
+HttpClient should be set up only once for the whole time the app is working.
 So after this part of the code is done, the response is saved as string and then as Json and returned to NearbyViewModel and setup as ObservableCollection<CarProp> to
 finally be seen on the list page.
   
