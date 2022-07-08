@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CarTechApp.ViewModel"
+             x:Class="CarTechApp.MainPage" Title="Front Page" >
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout Orientation="Vertical" BackgroundColor="#1E89DE" RadioButtonGroup.GroupName="searchChoice" RadioButtonGroup.SelectedValue="{Binding radioValue}">
+
+        <Entry  Grid.Row="0" Grid.Column="0" Placeholder="Search for Cars..." PlaceholderColor="DarkGray" Text="{Binding searchString}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="FillAndExpand" FontSize="20" TextColor="Black"/>
+        <Label Text="Search By:" TextColor="Black" FontAttributes="Bold"/>
+        <RadioButton Grid.Row="0" Grid.Column="1" GroupName="searchChoice"  Content="Car's Registration Number" Value="0" IsChecked="True" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+        <RadioButton Grid.Row="0" Grid.Column="2" GroupName="searchChoice" Content="Car's Model" Value="1" IsChecked="False" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+        <RadioButton Grid.Row="1" Grid.Column="0" GroupName="searchChoice" Content="Car's Brand" Value="2" IsChecked="False" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+        <Button Text="Search for Cars" BackgroundColor="LightGray" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Command ="{Binding GotoCMD}"/>
+
+    </StackLayout>
+</ContentPage>

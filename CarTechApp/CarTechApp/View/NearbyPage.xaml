@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodel="clr-namespace:CarTechApp.ViewModel"
+             x:Class="CarTechApp.View.NearbyPage"  Title="Car List Page" >
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="#474f4b">
+            <CollectionView BackgroundColor="#2196F3" x:Name="jakistamtest" ItemsSource="{Binding CarList}" SelectionChangedCommand="{Binding GoToPage}" SelectedItem="{Binding Item}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HorizontalOptions="FillAndExpand"
+                               Padding="3, 3, 3, 3"
+                                HasShadow="True"
+                                Visual="Material"
+                                BackgroundColor="#2196F3">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <BoxView Color="White" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Car's Reg. Number" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="Black"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="Car's Model" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="Black"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="Car's Brand" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding regNum}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding model}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding brand}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Small" FontAttributes="Bold" TextColor="Black"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+
+            <Button Text="Refresh list" BackgroundColor="LightYellow" TextColor="Black" Command="{Binding RefreshCommand}" ></Button>
+
+        </StackLayout>
+            
+
+    </ContentPage.Content>
+</ContentPage>

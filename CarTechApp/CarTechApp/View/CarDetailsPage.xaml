@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarTechApp.View.CarDetailsPage"  Title="Car Details Page" >
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#6623a4" RadioButtonGroup.GroupName="IsTheCarWorking" RadioButtonGroup.SelectedValue="{Binding IsWorking}">
+            <CollectionView x:Name="jakistamtest" ItemsSource="{Binding Car}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HorizontalOptions="FillAndExpand"
+                               Padding="10, 3, 10, 0"
+                                HasShadow="True"
+                                Visual="Material"
+                                BackgroundColor="#9e47ff">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Car's Registration Number" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding regNum}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="White"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="Car's Model:" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding model}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="White"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="Car's brand:" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding brand}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="White"/>
+                                <Label Grid.Row="3" Grid.Column="0" Text="Is the Car Working?" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding isWorking}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="White"/>
+                                <Label Grid.Row="4" Grid.Column="0" Text="Sorry for American way of Displaying Data, I don't know how to change it" FontSize="10" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center" />
+                                <Label Grid.Row="4" Grid.Column="1" Text="MM/DD/YYYY" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center" />
+                                <Label Grid.Row="5" Grid.Column="0" Text="Previous Technical Check-Up" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="5" Grid.Column="1" Text="{Binding actualDate}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" TextColor="White"/>
+                                <Label Grid.Row="6" Grid.Column="0" Text="Next Technical Check-Up" VerticalOptions="Center" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Label Grid.Row="6" Grid.Column="1" Text="{Binding nextDate}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" TextColor="White"/>
+                                <Label Grid.Row="7" Grid.ColumnSpan="2" Text="Is the Car working Correctly?"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+                                <RadioButton Grid.Row="8" Grid.ColumnSpan="2" GroupName="IsTheCarWorking" Content="Yes" Value="1" VerticalOptions="Center" HorizontalOptions="Center" IsChecked="False"/>
+                                <RadioButton Grid.Row="9" Grid.ColumnSpan="2" GroupName="IsTheCarWorking" Content="No" Value="0" VerticalOptions="Center" HorizontalOptions="Center" IsChecked="True"/>
+                                <Label Grid.Row="11" Grid.ColumnSpan="2" Text="{Binding Status, Mode=TwoWay}"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Grid.Row="10" Grid.ColumnSpan="2" Text="{Binding Status, Mode=TwoWay}"  VerticalOptions="Center" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
+            <Entry Grid.Row="9" Grid.ColumnSpan="2" Text="{Binding DateString, Mode=TwoWay}" Placeholder="Enter New Date (YYYY-MM-DD)" PlaceholderColor="Red" VerticalOptions="Center" HorizontalOptions="Center"  />
+            <Button Grid.Row="10" Grid.ColumnSpan="2" Text="Save" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Command ="{Binding saveDateCMD}"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
